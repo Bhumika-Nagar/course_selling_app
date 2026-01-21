@@ -13,10 +13,4 @@ app.use("/user",userRouter);
 app.use("/course",courseRouter);
 app.use("/admin",adminRouter);
 
-async function main(){
-
-    await mongoose.connect("mongodb+srv://bhumikanagar100_db_user:5rfLkWImNhTALB5N@cluster0.0skzoob.mongodb.net/course_selling_app");
-    app.listen(5000);
-}
-main();
 
