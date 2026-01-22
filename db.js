@@ -3,7 +3,6 @@ const Schema= mongoose.Schema;
 const objectId= mongoose.Types.ObjectId;
 
 const userSchema=new Schema({
-    //user_id: mongoose.Schema.Types.ObjectId,
     email:{type:String, unique:true},
     password:String,
     firstName:String,
@@ -11,7 +10,6 @@ const userSchema=new Schema({
 })
 
 const courseSchema=new Schema({
-    //course_id:mongoose.Schema.Types.ObjectId,
     title:String,
     description:String,
     price:Number,
@@ -20,7 +18,7 @@ const courseSchema=new Schema({
 })
 
 const adminSchema=new Schema({
-    //admin_id:mongoose.Schema.Types.ObjectId,
+    
     email:{type:String, unique:true},
     password:String,
     firstName:String,
@@ -28,9 +26,9 @@ const adminSchema=new Schema({
 })
 
 const purchaseSchema=new Schema({
-     purchase_id:mongoose.Schema.Types.ObjectId
-    //course_id:mongoose.Schema.Types.ObjectId,
-    //user_id:mongoose.Schema.Types.ObjectId
+     
+    course_id:mongoose.Schema.Types.ObjectId,
+    user_id:mongoose.Schema.Types.ObjectId
 })
 
 const userModel= mongoose.model("user",userSchema);
