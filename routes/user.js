@@ -4,6 +4,7 @@ const {userModel, purchaseModel, courseModel}= require("../db");
 const jwt= require("jsonwebtoken");
 const bcrypt= require("bcrypt");
 const {z}= require("zod");
+const{userMiddleware}= require("../middlewares/user");
 
 userRouter.post("/signup",async function(req,res){
     //const emailRegex =/^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/;
@@ -90,7 +91,7 @@ userRouter.post("/login", async (req, res) => {
 });
 
 
-userRouter.get("/purchases",async function(req,res){
+userRouter.get("/purchases",userMiddleware,async function(req,res){
     const userId= req.userId;
     const purchases= await purchaseModel.find({
         userId
